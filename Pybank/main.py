@@ -18,28 +18,26 @@ with open('budget_data.csv') as csvfile:
         months.append(row[0])
         earnings.append(int(row[1]))
 
-# in the range of net earnings from the second month to the end, calculating the greatest increase and decrease
+    # in the range of net earnings from the second month to the end, calculating the greatest increase and decrease
     for entry in range(1, len(earnings)):
         averageChange += earnings[entry] - earnings[entry - 1]
         currentChange = earnings[entry] - earnings[entry - 1]
-
-# Greatest increase in profits in months
+        # Greatest increase in profits in months
         if (currentChange > changeAmount[0]):
             changeAmount[0] = currentChange
             changeMonth[0] = months[entry]
-# Greatest decrease in profits in months
-        if (currentChange < -1 * changeAmount[0]):
+        # Greatest decrease in profits in months
+        elif(currentChange < -1 * changeAmount[0]):
             changeAmount[1] = currentChange
             changeMonth[1] = months[entry]
 
-    print(len(months))
-    print(netEarnings)
-    print(averageChange / (len(months) - 1))
-    print(changeMonth[0] + " " + str(changeAmount[0]))
-    print(changeMonth[1] + " " + str(changeAmount[1]))
+    print("Months: " + str(len(months)))
+    print("Net Profit/Loss: " + str(netEarnings))
+    print("Average Change: " + str(averageChange / (len(months) - 1)))
+    print("Greatest increase in profits: " + str(changeMonth[0] + " " + str(changeAmount[0])))
+    print("Greatest decrease in losses: " + str(changeMonth[1] + " " + str(changeAmount[1])))
 
-# writing to text file
-
+    # writing to text file
     output = open('pybanking.txt', 'w')
     output.writelines(str(len(months)) + "\n")
     output.writelines(str(netEarnings) + "\n")
