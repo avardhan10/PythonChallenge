@@ -22,3 +22,12 @@ with open('budget_data.csv') as csvfile:
     for entry in range(1, len(earnings)):
         averageChange += earnings[entry] - earnings[entry - 1]
         currentChange = earnings[entry] - earnings[entry - 1]
+
+# Greatest increase in profits in months
+        if (currentChange > changeAmount[0]):
+            changeAmount[0] = currentChange
+            changeMonth[0] = months[entry]
+# Greatest decrease in profits in months
+        if (currentChange < -1 * changeAmount[0]):
+            changeAmount[1] = currentChange
+            changeMonth[1] = months[entry]
