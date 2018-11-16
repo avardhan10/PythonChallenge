@@ -39,8 +39,8 @@ with open('budget_data.csv') as csvfile:
 
     # writing to text file
     output = open('pybanking.txt', 'w')
-    output.writelines(str(len(months)) + "\n")
-    output.writelines(str(netEarnings) + "\n")
-    output.writelines(str(averageChange / (len(months) - 1)) + "\n")
-    output.writelines(changeMonth[0] + " " + str(changeAmount[0]) + "\n")
-    output.writelines(changeMonth[1] + " " + str(changeAmount[1]) + "\n")
+    output.writelines(str(len(months)) + "/n")
+    output.writelines(str(netEarnings) + "/n")
+    output.writelines(str(averageChange / (len(months) - 1)) + "/n")
+    output.writelines(changeMonth[0] + " " + str(changeAmount[0]) + "/n")
+    output.writelines(changeMonth[1] + " " + str(changeAmount[1]) + "/n")
