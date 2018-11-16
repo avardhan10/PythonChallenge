@@ -38,9 +38,9 @@ with open('budget_data.csv') as csvfile:
     print("Greatest decrease in losses: " + str(changeMonth[1] + " " + str(changeAmount[1])))
 
     # writing to text file
-    output = open('pybanking.txt', 'w')
-    output.writelines(str(len(months)) + "/n")
-    output.writelines(str(netEarnings) + "/n")
-    output.writelines(str(averageChange / (len(months) - 1)) + "/n")
-    output.writelines(changeMonth[0] + " " + str(changeAmount[0]) + "/n")
-    output.writelines(changeMonth[1] + " " + str(changeAmount[1]) + "/n")
+    with open('pybanking.txt', 'w') as csvfile:
+        csvfile.writelines(str(len(months)) + "\n")
+        csvfile.writelines(str(netEarnings) + "\n")
+        csvfile.writelines(str(averageChange / (len(months) - 1)) + "\n")
+        csvfile.writelines(changeMonth[0] + " " + str(changeAmount[0]) + "\n")
+        csvfile.writelines(changeMonth[1] + " " + str(changeAmount[1]) + "\n")
