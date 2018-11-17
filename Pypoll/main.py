@@ -31,3 +31,10 @@ with open('election_data.csv') as csvfile:
             winner = candidate
         else:
             continue
+
+    print('Election Results')
+    print('Total Votes: ' + str(numOfVotes))
+    for candidate in voteCount.keys():
+        print(candidate + ": " + str("{:.3f}".format((voteCount.get(candidate) / numOfVotes) * 100)) + "% (" + str(
+                voteCount.get(candidate)) + ")")
+    print('Winner:' + winner)
