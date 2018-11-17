@@ -42,6 +42,5 @@ with open('budget_data.csv') as csvfile:
         csvfile.writelines("Months: " + str(len(months)) + "\n")
         csvfile.writelines("Net Profit/Loss: $" + str(netEarnings) + "\n")
         csvfile.writelines("Average Change: $" + str("{:.2f}".format(averageChange / (len(months) - 1))) + "\n")
-        csvfile.writelines(
-            "Greatest increase in profits: " + str(changeMonth[0]) + " ($" + str(changeAmount[0]) + ")\n")
+        csvfile.writelines("Greatest increase in profits: " + str(changeMonth[0]) + " ($" + str(changeAmount[0]) + ")\n")
         csvfile.writelines("Greatest decrease in losses: " + str(changeMonth[1]) + " ($" + str(changeAmount[1]) + ")\n")
