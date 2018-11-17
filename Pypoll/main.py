@@ -38,3 +38,13 @@ with open('election_data.csv') as csvfile:
         print(candidate + ": " + str("{:.3f}".format((voteCount.get(candidate) / numOfVotes) * 100)) + "% (" + str(
                 voteCount.get(candidate)) + ")")
     print('Winner:' + winner)
+
+    # writing to text file
+    with open('pypoll.txt', 'w') as csvfile:
+        csvfile.writelines('Election Results\n')
+        csvfile.writelines('Total Votes: ' + str(numOfVotes) + '\n')
+        for candidate in voteCount.keys():
+            csvfile.writelines(
+                candidate + ": " + str("{:.3f}".format((voteCount.get(candidate) / numOfVotes) * 100)) + "% (" + str(
+                    voteCount.get(candidate)) + ")\n")
+        csvfile.writelines('Winner: ' + winner + "\n")
