@@ -45,6 +45,5 @@ with open('election_data.csv') as csvfile:
         csvfile.writelines('Total Votes: ' + str(numOfVotes) + '\n')
         for candidate in voteCount.keys():
             csvfile.writelines(
-                candidate + ": " + str("{:.3f}".format((voteCount.get(candidate) / numOfVotes) * 100)) + "% (" + str(
-                    voteCount.get(candidate)) + ")\n")
-        csvfile.writelines('Winner: ' + winner + "\n")
+                candidate + ": " + str("{:.3f}".format((voteCount.get(candidate) / numOfVotes) * 100)) + "% (" + str(voteCount.get(candidate)) + ")\n")
+            csvfile.writelines('Winner: ' + winner + "\n")
