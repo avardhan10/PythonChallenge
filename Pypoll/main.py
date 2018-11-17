@@ -20,3 +20,14 @@ with open('election_data.csv') as csvfile:
         if candidateName not in voteCount:
             voteCount[candidateName] = 0
         voteCount[candidateName] += 1
+
+    # Find election winner
+    winningVoteCountSoFar = 0
+    # voteCount.keys() returns list of all candidates because that is how I constructed it.
+    for candidate in voteCount.keys():
+        votesForCandidate = voteCount.get(candidate)
+        if (winningVoteCountSoFar < votesForCandidate):
+            winningVoteCountSoFar = votesForCandidate
+            winner = candidate
+        else:
+            continue
